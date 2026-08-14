@@ -1,8 +1,11 @@
 from flask import Flask, render_template_string, request, redirect
 import views
+from static.data.database import criar_tabelas
 
 
 app = Flask(__name__)
+
+criar_tabelas()
 
 # Configurando a pasta de arquivos estáticos
 app.static_folder = 'static'
@@ -18,7 +21,7 @@ def submit():
         detalhes = request.form['detalhes']
 
         views.submit(titulo, detalhes)
-        return render_template_string(views.index())
+        return redirect('/')
     else:
         return redirect('/')
 
