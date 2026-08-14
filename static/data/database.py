@@ -14,10 +14,10 @@ def criar_tabelas():
     cursor = conn.cursor()
 
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS notas (
+        CREATE TABLE IF NOT EXISTS note (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT NOT NULL,
-            details TEXT NOT NULL
+            content TEXT NOT NULL
         )
     """)
 
@@ -30,7 +30,7 @@ def carregar_notas():
 
     cursor.execute("""
         SELECT title AS titulo, details AS detalhes
-        FROM notas
+        FROM note
     """)
 
     notas = cursor.fetchall()
@@ -42,7 +42,7 @@ def adicionar_notas(titulo, detalhes):
     cursor = conn.cursor()
 
     cursor.execute(
-        "INSERT INTO notas (title, details) VALUES (?, ?)",
+        "INSERT INTO note (title, details) VALUES (?, ?)",
         (titulo, detalhes)
     )
 
