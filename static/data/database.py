@@ -29,7 +29,7 @@ def carregar_notas():
     cursor = conn.cursor()
 
     cursor.execute("""
-        SELECT title AS titulo, details AS detalhes
+        SELECT title AS titulo, content AS detalhes
         FROM note
     """)
 
@@ -42,7 +42,7 @@ def adicionar_notas(titulo, detalhes):
     cursor = conn.cursor()
 
     cursor.execute(
-        "INSERT INTO note (title, details) VALUES (?, ?)",
+        "INSERT INTO note (title, content) VALUES (?, ?)",
         (titulo, detalhes)
     )
 
