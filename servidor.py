@@ -1,6 +1,6 @@
 from flask import Flask, render_template_string, request, redirect
 import views
-from static.data.database import criar_tabelas
+from static.data.createdb import criar_tabelas
 
 
 app = Flask(__name__)

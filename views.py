@@ -1,5 +1,5 @@
 from utils import load_data, load_template, add_note
-from static.data.database import carregar_notas, adicionar_notas
+from static.data.createdb import carregar_notas, adicionar_notas
 
 def index():
     note_template = load_template('components/note.html')
