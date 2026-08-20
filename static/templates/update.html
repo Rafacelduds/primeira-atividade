@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/update/{id}/salvar" method="POST">
+        <input type="hidden">
+        Título:
+            <input type="text" name="titulo" value="{title}">
+        <br>
+        Detalhes:
+            <input type="text" name="detalhes" value="{content}">
+        <br>
+
+        <button type="submit">Salvar</button>
+        <a href="/">Cancelar</a>
+    </form>
+</body>
+</html>

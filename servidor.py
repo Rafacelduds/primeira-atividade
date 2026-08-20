@@ -1,6 +1,6 @@
 from flask import Flask, render_template_string, request, redirect
 import views
-from static.data.createdb import criar_tabelas
+from static.data.createdb import criar_tabelas, atualizar_nota
 
 
 app = Flask(__name__)
@@ -32,6 +32,21 @@ def delete(id):
         return redirect('/')
     else:
         return redirect('/')
+
+@app.route('/update/<int:id>')
+def update_page(id):
+    if request.method == 'GET':
+        return views.update(id)
+
+@app.route('/update/<int:id>/salvar', methods=['POST'])
+def update_confirm(id):
+    if request.method == 'POST':
+        titulo = request.form['titulo']
+        detalhes = request.form['detalhes']
+
+        atualizar_nota(id, titulo, detalhes)
+        return redirect('/')
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True)

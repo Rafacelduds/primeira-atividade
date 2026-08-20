@@ -60,3 +60,28 @@ def deletar_notas(id):
 
     conn.commit()
     conn.close()
+
+def carregar_nota(id):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT id, title AS titulo, content AS detalhes FROM note WHERE id = ?",
+        (id, )
+    )
+
+    note = cursor.fetchone()
+    conn.close()
+    return note
+
+def atualizar_nota(id, title, content):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "UPDATE note SET title = ?, content = ? WHERE id = ?",
+        (title, content, id)
+    )
+
+    conn.commit()
+    conn.close()
