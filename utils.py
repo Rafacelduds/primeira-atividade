@@ -1,4 +1,5 @@
 import json
+import sqlite3
 
 def load_data(notes):
     with open(f'static/data/{notes}', 'r') as file:

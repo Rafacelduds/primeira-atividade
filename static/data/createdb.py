@@ -29,7 +29,7 @@ def carregar_notas():
     cursor = conn.cursor()
 
     cursor.execute("""
-        SELECT title AS titulo, content AS detalhes
+        SELECT title AS titulo, content AS detalhes, id AS id
         FROM note
     """)
 
@@ -44,6 +44,18 @@ def adicionar_notas(titulo, detalhes):
     cursor.execute(
         "INSERT INTO note (title, content) VALUES (?, ?)",
         (titulo, detalhes)
+    )
+
+    conn.commit()
+    conn.close()
+
+def deletar_notas(id):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "DELETE FROM note WHERE id = ?",
+        (id, )
     )
 
     conn.commit()

@@ -25,5 +25,13 @@ def submit():
     else:
         return redirect('/')
 
+@app.route('/delete/<int:id>')
+def delete(id):
+    if request.method == 'GET':
+        views.delete(id)
+        return redirect('/')
+    else:
+        return redirect('/')
+
 if __name__ == '__main__':
     app.run(debug=True)
