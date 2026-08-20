@@ -9,9 +9,9 @@ def load_template(template):
     with open(f'static/templates/{template}', 'r') as file:
         return file.read()
 
-def add_note(note, filename):
+def add_note(notes, filename):
     notes = load_data(f'{filename}')
-    notes.append(note)
+    notes.append(notes)
 
     with open(f'static/data/{filename}', 'w') as file:
         json.dump(notes, file)
