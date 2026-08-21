@@ -55,6 +55,18 @@ li {
   border-left: 4px solid #f2c94c;
 }
 
+li.favorite {
+  background-color: #fffbea;
+  border-left-color: #d4a900;
+}
+
+.favorite-badge {
+  margin-left: 6px;
+  color: #9a7800;
+  font-size: 12px;
+  font-weight: normal;
+}
+
 li h3,
 li p {
   margin: 0;

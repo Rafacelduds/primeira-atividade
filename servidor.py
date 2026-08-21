@@ -1,6 +1,6 @@
 from flask import Flask, render_template_string, request, redirect
 import views
-from static.data.createdb import criar_tabelas, atualizar_nota
+from static.data.createdb import criar_tabelas, atualizar_nota, favoritar_nota
 
 
 app = Flask(__name__)
@@ -46,6 +46,11 @@ def update_confirm(id):
 
         atualizar_nota(id, titulo, detalhes)
         return redirect('/')
+    return redirect('/')
+
+@app.route('/favoritar/<int:id>')
+def favoritar(id):
+    favoritar_nota(id)
     return redirect('/')
 
 if __name__ == '__main__':

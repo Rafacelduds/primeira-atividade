@@ -4,7 +4,14 @@ from static.data.createdb import carregar_notas, adicionar_notas, deletar_notas,
 def index():
     note_template = load_template('components/notes.html')
     notes_li = [
-        note_template.format(id=dados['id'], title=dados['titulo'], content=dados['detalhes'])
+        note_template.format(
+            id=dados['id'],
+            title=dados['titulo'],
+            content=dados['detalhes'],
+            favorite_class=' favorite' if dados['favorito'] else '',
+            favorite_label='Desfavoritar' if dados['favorito'] else 'Favoritar',
+            favorite_badge='<span class="favorite-badge">★ Favorita</span>' if dados['favorito'] else ''
+        )
         for dados in carregar_notas()
     ]
     notes = '\n'.join(notes_li)
